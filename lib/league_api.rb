@@ -1,37 +1,26 @@
-require "league_api/version"
-require "league_api/champion"
-require "net/http"
 require 'json'
+require 'open-uri'
+require 'league_api/champion'
+require 'league_api/static'
+require 'league_api/game'
+require 'league_api/summoner'
 
 module LeagueApi
-  class << self
-    #TODO: move to all config to yml
-    @config = {
-        :api => '?api_key=12c41a10-86fc-4d16-934c-277e891e1519'
-    }
+    #@api_key = "nil"
+#for now default to development key
+    @api_key = "12c41a10-86fc-4d16-934c-277e891e1519"
+    @region = "na"
 
-    def request(type)
-      case type
-      when :champ_list then get_champion_list
-      end
+    def self.authenticate(key)
+      @api_key = key
     end
 
-    private
-    def get_champion_list
-      query = 'v1.2/champion'
-      uri = URI('https://prod.api.pvp.net/api/lol/na/'+query+@config[:api])
-      JSON.parse(HTTP.get(uri))
+    def self.options
+      {
+        key: @api_key,
+        base_url: 'https://prod.api.pvp.net/api/lol',
+        region: @region
+      }
     end
-  end
 
-=begin
-  def self.request(query)
-    uri = URI('https://prod.api.pvp.net/api/lol/na/'+query+@config[:api])
-    JSON.parse(Net::HTTP.get(uri))
-  end
-
-  def self.get_champion_list
-    request('v1.2/champion')
-  end
-=end
 end
