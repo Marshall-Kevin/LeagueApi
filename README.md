@@ -1,24 +1,16 @@
 # LeagueApi
 
-TODO: Write a gem description
+A 1-1 mapping of the Riot Developer APIs to a convenient and light weight ruby gem. 
+
+Tested on Ruby 2.1, using json + open-uri for bare minimum requests. (could always use improvement)
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'league_api'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install league_api
+    gem install league_api
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Formalize the calling structure used for the entire API
 
 ## Contributing
 
