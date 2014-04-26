@@ -4,11 +4,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "league_api"
-  spec.version       = "0.0.1"
+  spec.version       = "0.1.0"
   spec.authors       = ["DanBradbury"]
   spec.email         = ["dan.luckydaisy@gmail.com"]
-  spec.summary       = %q{Requests to Riot API}
-  spec.description   = %q{Full access to League of Legends API (in beta)}
+  spec.summary       = %q{Requests to Riot Developer API}
+  spec.description   = %q{Mapping of Riot Developer APIs to a simple/convenient abstraction. Always updating to add more helpful abstractions and uses that utilize the API to the fullest}
   spec.homepage      = "https://github.com/DanBradbury/LeagueApi"
   spec.license       = "MIT"
 
