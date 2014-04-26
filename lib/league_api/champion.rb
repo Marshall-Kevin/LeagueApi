@@ -1,7 +1,7 @@
 module LeagueApi
 
   class Champion
-      @base_url = "nil"
+    @base_url = "nil"
 
     def self.make_base_url(modifier)
       options = LeagueApi.options
