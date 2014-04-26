@@ -4,11 +4,12 @@ require 'league_api/champion'
 require 'league_api/static'
 require 'league_api/game'
 require 'league_api/summoner'
+require 'league_api/league'
+require 'league_api/team'
+require 'league_api/stats'
 
 module LeagueApi
-    #@api_key = "nil"
-#for now default to development key
-    @api_key = "12c41a10-86fc-4d16-934c-277e891e1519"
+    @api_key = ENV["LOL_KEY"]
     @region = "na"
 
     def self.authenticate(key)

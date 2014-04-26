@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LeagueApi::Champion do
 	
-	it 'Should return correct champion list' do
+	it 'should return correct champion list' do
 		list = LeagueApi::Champion.get_list
 
 		list.first["id"].should == 266

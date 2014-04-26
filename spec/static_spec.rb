@@ -43,7 +43,7 @@ describe LeagueApi::Static do
 	end
 
 	it "should get current realm information" do
-		@static.get_realm["v"].should == "4.5.4"
+		@static.get_realm["v"].should == "4.6.3"
 		@static.get_realm["l"].should == "en_US"
 		@static.get_realm["cdn"].should == "http://ddragon.leagueoflegends.com/cdn"
 	end

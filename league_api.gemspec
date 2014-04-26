@@ -9,10 +9,10 @@ Gem::Specification.new do |spec|
   spec.email         = ["dan.luckydaisy@gmail.com"]
   spec.summary       = %q{Requests to Riot API}
   spec.description   = %q{Full access to League of Legends API (in beta)}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/DanBradbury/LeagueApi"
   spec.license       = "MIT"
 
-  spec.files         = ["lib/league_api.rb", "lib/league_api/champion.rb", "lib/league_api/static.rb", "lib/league_api/game.rb", "lib/league_api/summoner.rb"]
+  spec.files         = ["lib/league_api.rb", "lib/league_api/champion.rb", "lib/league_api/static.rb", "lib/league_api/game.rb", "lib/league_api/summoner.rb", "lib/league_api/league.rb", "lib/league_api/team.rb", "lib/league_api/stats.rb"]
   spec.executables   = []
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
