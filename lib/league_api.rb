@@ -24,4 +24,18 @@ module LeagueApi
     }
   end
 
+  # Returns an array of champion names
+  def self.get_champion_names
+    Static.get_champion_list.keys
+  end
+
+  #Retyurns an array of item names
+  def self.get_item_names
+    items = []
+    Static.get_item_list.values.each do |f|
+      items << f["name"]
+    end
+    items
+  end
+
 end
