@@ -9,14 +9,16 @@ require 'league_api/team'
 require 'league_api/stats'
 
 module LeagueApi
+  extend self
+
   @api_key = ENV["LOL_KEY"]
   @region = "na"
 
-  def self.authenticate(key)
+  def authenticate(key)
     @api_key = key
   end
 
-  def self.options
+  def options
     {
       key: @api_key,
       base_url: 'https://prod.api.pvp.net/api/lol',
@@ -25,17 +27,26 @@ module LeagueApi
   end
 
   # Returns an array of champion names
-  def self.get_champion_names
+  def get_champion_names
     Static.get_champion_list.keys
   end
 
-  #Retyurns an array of item names
-  def self.get_item_names
+  # Returns an array of item names
+  def get_item_names
     items = []
     Static.get_item_list.values.each do |f|
       items << f["name"]
     end
     items
+  end
+
+  # Return player id given the summoner name
+  def get_summoner_id(str)
+    Summoner.find_by_name(str)["id"]
+  end
+
+  def get_last_game_played(id)
+    Game.recent_games(id).first
   end
 
 end

@@ -20,8 +20,7 @@ module LeagueApi
       make_request('by-name/'+name)[name.downcase]
     end
 
-    # Get Summoner Objects mapped by summoner ID for a given list of summoner IDs
-    # => str - comma seperated list of summoner ids
+    # Get Summoner Objects mapped by summoner ID for a given a comma seperated list of summoner IDs
     def self.find_summoners(str)
       make_request(str.gsub(" ", ""))
     end

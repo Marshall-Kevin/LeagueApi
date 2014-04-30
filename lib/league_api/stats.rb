@@ -13,7 +13,6 @@ module LeagueApi
     def self.make_request(str)
       build_base_url(str)
       uri = URI.parse(@base_url)
-      puts uri
       JSON.parse(uri.read)
     end
 
