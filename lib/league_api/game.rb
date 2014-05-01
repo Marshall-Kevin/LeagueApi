@@ -1,22 +1,14 @@
 module LeagueApi
 
 	class Game
-		@base_url
-
-		def self.build_base_url(modifier)
-			options = LeagueApi.options
-			@base_url = options[:base_url]+'/'+options[:region]+'/'+'v1.3/game/by-summoner/'+modifier+'/recent?api_key='+options[:key]
-			@base_url
-		end
+		@base_url = 'https://prod.api.pvp.net/api/lol/na/v1.3/game/by-summoner/'
 
 		def self.make_request(str)
-			build_base_url(str)
-			uri = URI.parse(@base_url)
-			JSON.parse(uri.read)
+			LeagueApi.make_request(@base_url, str)
 		end
 
 		def self.recent_games(id)
-			make_request(id.to_s)["games"]
+			make_request(id.to_s+'/recent')["games"]
 		end
 
 	end

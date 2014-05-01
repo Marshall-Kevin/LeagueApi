@@ -2,18 +2,10 @@ module LeagueApi
   
   class Stats
     
-    @base_url
-
-    def self.build_base_url(modifier)
-      options = LeagueApi.options
-      @base_url = options[:base_url]+'/'+options[:region]+'/'+'v1.3/stats/by-summoner/'+modifier+'?api_key='+options[:key]
-      @base_url
-    end
+    @base_url = 'https://prod.api.pvp.net/api/lol/na/v1.3/stats/by-summoner/'
 
     def self.make_request(str)
-      build_base_url(str)
-      uri = URI.parse(@base_url)
-      JSON.parse(uri.read)
+      LeagueApi.make_request(@base_url, str)
     end
 
     def self.ranked(id)

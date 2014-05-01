@@ -1,24 +1,18 @@
 module LeagueApi
 
   class Champion
-    @base_url = "nil"
+    @base_url = "https://prod.api.pvp.net/api/lol/na/v1.2/"
 
-    def self.make_base_url(modifier)
-      options = LeagueApi.options
-      @base_url = options[:base_url]+'/'+options[:region]+'/'+'v1.2/'+modifier+'?api_key='+options[:key]
-      @base_url
+    def self.make_request(modifier)
+      LeagueApi.make_request(@base_url, modifier)
     end
 
     def self.get_list
-      make_base_url('champion')
-      uri = URI.parse(@base_url)
-      JSON.parse(uri.read)["champions"]
+      make_request('champion')["champions"]
  	  end
 
     def self.get_by_id(id)
-      make_base_url('champion/'+id.to_s)
-      uri = URI.parse(@base_url)
-      JSON.parse(uri.read)
+      make_request('champion/'+id.to_s)
     end
   
   end

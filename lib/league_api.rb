@@ -14,20 +14,13 @@ module LeagueApi
   @api_key = ENV["LOL_KEY"]
   @region = "na"
 
-  def authenticate(key)
-    @api_key = key
-  end
-
-  def options
-    {
-      key: @api_key,
-      base_url: 'https://prod.api.pvp.net/api/lol',
-      region: @region
-    }
-  end
-
-  def make_request(base, modifier)
+  def make_request(base, modifier=nil, params=nil)
     url = base + modifier + '?api_key=' + @api_key
+
+    if params != nil
+      url << '&type='+params
+    end
+
     uri = URI.parse(url)
     JSON.parse(uri.read)
   end

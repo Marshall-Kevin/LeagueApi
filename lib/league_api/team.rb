@@ -2,18 +2,10 @@ module LeagueApi
 
   class Team
 
-    @base_url
-
-    def self.build_base_url(modifier)
-      options = LeagueApi.options
-      @base_url = options[:base_url]+'/'+options[:region]+'/'+'v2.2/team/'+modifier+'?api_key='+options[:key]
-      @base_url
-    end
+    @base_url = 'https://prod.api.pvp.net/api/lol/na/v2.2/team/'
 
     def self.make_request(str)
-      build_base_url(str)
-      uri = URI.parse(@base_url)
-      JSON.parse(uri.read)
+      LeagueApi.make_request(@base_url, str)
     end
 
     def self.by_summoner(id)
