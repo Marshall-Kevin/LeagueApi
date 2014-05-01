@@ -26,6 +26,12 @@ module LeagueApi
     }
   end
 
+  def make_request(base, modifier)
+    url = base + modifier + '?api_key=' + @api_key
+    uri = URI.parse(url)
+    JSON.parse(uri.read)
+  end
+
   # Returns an array of champion names
   def get_champion_names
     Static.get_champion_list.keys
