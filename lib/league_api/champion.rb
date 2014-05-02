@@ -14,6 +14,10 @@ module LeagueApi
     def self.get_by_id(id)
       make_request('champion/'+id.to_s)
     end
+
+    def self.requests
+      %w( get_list get_by_id(champion_id) )
+    end
   
   end
 

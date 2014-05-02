@@ -60,5 +60,10 @@ module LeagueApi
       make_request('versions')
     end
 
+    def self.requests
+      %w( get_champion_list get_champion_by_name(champ_id) get_item_list get_item_by_id get_mastery_list get_mastery_by_id get_realm get_rune_list rune_by_id(id) get_summoner_spells get_summoner_by_id(id) get_versions)
+    end
+
+
   end
 end

@@ -16,6 +16,10 @@ module LeagueApi
       make_request(str.gsub(" ",""))
     end
 
+    def self.requests
+      %w( by_summoner(summoner_id) find_teams(team_ids) )
+    end
+
   end
 
 end

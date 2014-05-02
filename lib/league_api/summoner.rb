@@ -29,6 +29,10 @@ module LeagueApi
       make_request(summoners.gsub(" ", "")+'/runes')
     end
 
+    def self.requests
+      %w( find_by_name(summoner_name) find_summoners(summoner_id_list) get_masteries(ids) get_names(ids) get_runes(ids) )
+    end
+
   end
 
 end

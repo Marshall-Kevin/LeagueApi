@@ -27,7 +27,11 @@ module LeagueApi
     def self.get_challenger(queue="RANKED_SOLO_5x5")
       make_request('challenger', queue)
     end
-  
+
+    def self.requests
+      %w( by_summoner(id) entry_by_summoner(id) by_team(team_id) entry_by_team(team_id) get_challenger(queue="RANKED_SOLO_5x5") )
+    end
+
   end
 
 end

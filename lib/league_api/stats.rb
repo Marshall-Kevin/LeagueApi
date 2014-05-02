@@ -16,6 +16,10 @@ module LeagueApi
       make_request(id.to_s+'/summary')
     end
 
+    def self.requests
+      %w( ranked(summoner_id) summary(summoner_id) )
+    end
+
   end
 
 end

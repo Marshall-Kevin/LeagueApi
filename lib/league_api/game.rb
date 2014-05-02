@@ -11,6 +11,10 @@ module LeagueApi
 			make_request(id.to_s+'/recent')["games"]
 		end
 
+		def self.requests
+			%w( recent_games(summoner_id) )
+		end
+
 	end
 
 end

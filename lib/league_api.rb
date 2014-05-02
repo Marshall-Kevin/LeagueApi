@@ -25,6 +25,18 @@ module LeagueApi
     JSON.parse(uri.read)
   end
 
+  #Display all available Requests for all API classes
+  def available_requests
+    c = self.constants
+    requests = {}
+    
+    c.each do |i|
+      requests[eval(i.to_s)] = eval(i.to_s).requests
+    end
+    
+    requests
+  end
+
   # Returns an array of champion names
   def get_champion_names
     Static.get_champion_list.keys
