@@ -7,12 +7,15 @@ A 1-1 mapping of the Riot Developer APIs to a Ruby Gem with a convenient abstrac
 ## Installation
 
     gem install league_api
-    export LOL_KEY="your-key"
 
 ## Usage
-Every section of the API can be accessed individually by the following grammar:
+In order to use the API you must have a developer key which can be obtained at (https://developer.riotgames.com/):
+    
+    export LOL_KEY="your-key"
 	
-	LeagueApi::RESOURCE Champion | Game | League | Static | Stats | Summoner | Team
+Once you set the LOL_KEY (will be changing to API_KEY in the near future) you can start to play with the API methods that Riot provides (https://developer.riotgames.com/api/methods). 
+
+####Available Methods
 
     LeagueApi::Champion [ get_list, get_by_id(id) ]
     LeagueApi::Game [ recent_games(id ]
@@ -24,10 +27,14 @@ Every section of the API can be accessed individually by the following grammar:
     LeagueApi::Stats [ ranked(id), summary(id) ]
     LeagueApi::Team [ by_summoner(id), find_teams(ids) ]
 
+
+Since the API returns JSON there is typically more information than we typically want. Because of this there are / will be more, *convenience methods* available. 
+
+    LeagueApi.get_champion_list #Fetch array of champions names 
+    LeagueApi [ get_item_names, get_summoner_id(name), last_game_played(summoner_id) ]
+
+Right now there are not many methods available 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/league_api/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+Is very much appreciated so feel free to submit a PR and we can see if we can get it merged in. 
+
