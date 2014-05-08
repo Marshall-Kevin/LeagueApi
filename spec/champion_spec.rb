@@ -6,7 +6,7 @@ describe LeagueApi::Champion do
 		list = LeagueApi::Champion.get_list
 
 		list.first["id"].should == 266
-		list.size.should == 118 #As of Patch 4.5
+		list.size.should == 119 #As of Patch 4.7
 	end
 
 	it "should find champion by id" do
@@ -18,5 +18,4 @@ describe LeagueApi::Champion do
 			"botMmEnabled"=>true,
 			"rankedPlayEnabled"=>true }
 	end
-	
 end
