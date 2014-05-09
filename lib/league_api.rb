@@ -56,8 +56,20 @@ module LeagueApi
     Summoner.find_by_name(str)["id"]
   end
 
+  # Return unformatted JSON of the last game played
   def get_last_game_played(id)
     Game.recent_games(id).first
+  end
+
+  # Return a String for the last champion played
+  def get_last_champion_played(id)
+    champ_id = Game.recent_games(id).first["championId"]
+    Static.get_inverted_champion_list[champ_id]
+  end
+
+  # Return the Time for the last played game
+  def get_time_of_last_game(id)
+    Time.at( Game.recent_games(id).first["createDate"] / 1000 )
   end
 
 end

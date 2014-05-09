@@ -60,8 +60,19 @@ module LeagueApi
       make_request('versions')
     end
 
+    def self.get_inverted_champion_list
+      hash = get_champion_list
+      r = {}
+      
+      hash.each do |e|
+        r[ e[1]["id"] ] = e[0]
+      end
+      
+      r
+    end
+
     def self.requests
-      %w( get_champion_list get_champion_by_name(champ_id) get_item_list get_item_by_id get_mastery_list get_mastery_by_id get_realm get_rune_list rune_by_id(id) get_summoner_spells get_summoner_by_id(id) get_versions)
+      %w( get_champion_list get_inverted_champion_list get_champion_by_name(champ_id) get_item_list get_item_by_id get_mastery_list get_mastery_by_id get_realm get_rune_list rune_by_id(id) get_summoner_spells get_summoner_by_id(id) get_versions)
     end
 
 

@@ -10,6 +10,10 @@ describe LeagueApi::Static do
 		@static.get_champion_list.first.should == ["Aatrox", {"id"=>266, "key"=>"Aatrox", "name"=>"Aatrox", "title"=>"the Darkin Blade"}]
 	end
 
+	it "should return an inverted champion list with ids as the keys" do
+		@static.get_inverted_champion_list.first.should == [266, "Aatrox"]
+	end
+
 	it "should get champion data from name only" do
 		@static.get_champion_by_name("Aatrox").should == {"id"=>266, "key"=>"Aatrox", "name"=>"Aatrox", "title"=>"the Darkin Blade"}
 	end
@@ -67,4 +71,5 @@ describe LeagueApi::Static do
 	it "should get the current versions of the game" do
 		@static.get_versions.first.should == "4.7.8"
 	end
+
 end
