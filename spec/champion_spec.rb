@@ -18,4 +18,8 @@ describe LeagueApi::Champion do
 			"botMmEnabled"=>true,
 			"rankedPlayEnabled"=>true }
 	end
+
+	it "should only find free to play champions" do
+		LeagueApi::Champion.get_free_champs.size.should == 10 #Better than having to update or pull a list
+	end
 end

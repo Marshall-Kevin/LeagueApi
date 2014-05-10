@@ -25,7 +25,8 @@ module LeagueApi
     end
 
     def self.get_challenger(queue="RANKED_SOLO_5x5")
-      make_request('challenger', queue)
+      params = {"type" => queue}
+      make_request('challenger', params)
     end
 
     def self.requests

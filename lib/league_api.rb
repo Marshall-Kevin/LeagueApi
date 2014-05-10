@@ -15,10 +15,19 @@ module LeagueApi
   @region = "na"
 
   def make_request(base, modifier=nil, params=nil)
-    url = base + modifier + '?api_key=' + @api_key
+    url = base + modifier
 
-    if params != nil
-      url << '&type='+params
+    if params
+    
+      params.each do |p|
+        url << '?'+p[0]+'='+p[1]
+      end
+      url += '&api_key=' + @api_key
+    
+    else
+
+      url += '?api_key=' + @api_key
+    
     end
 
     uri = URI.parse(url)
