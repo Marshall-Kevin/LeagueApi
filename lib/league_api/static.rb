@@ -71,8 +71,23 @@ module LeagueApi
       r
     end
 
+    #Image CDN supported by ddragon (Runes + Masteries are done on single sprite sheet)
+    #TODO: Implement http://ddragon.leagueoflegends.com/cdn/4.7.8/img/sprite/rune0.png
+
+    def self.get_item_image(id)
+      "http://ddragon.leagueoflegends.com/cdn/"+get_versions.first+"/img/item/"+id.to_s+".png"
+    end
+
+    def self.get_champion_image(str)
+      "http://ddragon.leagueoflegends.com/cdn/"+get_versions.first+"/img/champion/"+str+".png"
+    end
+
+    def self.get_summoner_image(id)
+      "http://ddragon.leagueoflegends.com/cdn/"+get_versions.first+"/img/sprite/spell"+id.to_s+".png"
+    end
+
     def self.requests
-      %w( get_champion_list get_inverted_champion_list get_champion_by_name(champ_id) get_item_list get_item_by_id get_mastery_list get_mastery_by_id get_realm get_rune_list rune_by_id(id) get_summoner_spells get_summoner_by_id(id) get_versions)
+      %w( get_champion_list get_inverted_champion_list get_champion_by_name(champ_id) get_item_list get_item_by_id get_mastery_list get_mastery_by_id get_realm get_rune_list rune_by_id(id) get_summoner_spells get_summoner_by_id(id) get_versions get_item_image get_champion_image get_summoner_image)
     end
 
 

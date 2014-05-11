@@ -72,4 +72,16 @@ describe LeagueApi::Static do
 		@static.get_versions.first.should == "4.7.8"
 	end
 
+	it "should get the ddragon image url for the given item id" do
+		@static.get_item_image(2009).should == "http://ddragon.leagueoflegends.com/cdn/4.7.8/img/item/2009.png"
+	end
+
+	it "should get the ddragon image url for a given champion name" do
+		@static.get_champion_image("Aatrox").should == "http://ddragon.leagueoflegends.com/cdn/4.7.8/img/champion/Aatrox.png"
+	end
+
+	it "should get the summoner image from ddragon cdn" do
+		@static.get_summoner_image(0).should == "http://ddragon.leagueoflegends.com/cdn/4.7.8/img/sprite/spell0.png"
+	end
+
 end
