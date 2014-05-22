@@ -30,24 +30,52 @@
 
       </header>
       <section>
-        <h3>
-<a name="welcome-to-leagueapi" class="anchor" href="#welcome-to-leagueapi"><span class="octicon octicon-link"></span></a>Welcome to LeagueApi</h3>
+        <h1>
+<a name="why-leagueapi" class="anchor" href="#why-leagueapi"><span class="octicon octicon-link"></span></a>Why LeagueApi?</h1>
 
-<p>A Ruby Gem which provides powerful and convenient methods to utilize the Riot Developer APIs to their full potential. The gem also provides a 1-1 mapping of all the base methods that Riot provides you with. </p>
+<p>Riot has recently put out a set of API methods that can be called through a simple request model. Found on the <a href="http://developer.riotgames.com/api/methods">Riot Developer Site</a>. </p>
 
-<p>To get started working with the gem perform the following.</p>
+<p>There are a few other projects that are looking to support the API in ruby already. I recommend checking them out to see if one they are a better fit for you. </p>
 
-<pre><code>$ gem install league_api
-$ export LOL_KEY="api-key"
-#VERIFY INSTALL
-$ pry / irb
-$ :001 &gt; require 'league_api'
-=&gt; true
-$ :002 &gt; LeagueApi.available_requests
-=&gt; {LeagueApi::Champion=&gt;["get_list", "get_by_id(champion_id)"], LeagueApi::Static=&gt;["get_champion_list", "get_champion_by_name(champ_id)", "get_item_list", "get_item_by_id", "get_mastery_list", "get_mastery_by_id", "get_realm", "get_rune_list", "rune_by_id(id)", "get_summoner_spells", "get_summoner_by_id(id)", "get_versions"], LeagueApi::Game=&gt;["recent_games(summoner_id)"], LeagueApi::Summoner=&gt;["find_by_name(summoner_name)", "find_summoners(summoner_id_list)", "get_masteries(ids)", "get_names(ids)", "get_runes(ids)"], LeagueApi::League=&gt;["by_summoner(id)", "entry_by_summoner(id)", "by_team(team_id)", "entry_by_team(team_id)", "get_challenger(queue=\"RANKED_SOLO_5x5\")"], LeagueApi::Team=&gt;["by_summoner(summoner_id)", "find_teams(team_ids)"], LeagueApi::Stats=&gt;["ranked(summoner_id)", "summary(summoner_id)"]}
-</code></pre>
+<ul>
+<li>
+<a href="https://github.com/petems/riot_api">riot_api</a> - Looks like it is still alive but bulky for my liking (60KB)</li>
+<li>
+<a href="https://github.com/PeterBorah/vigor">Vigor</a> - Smaller implementation using httparty</li>
+<li>
+<a href="https://github.com/mikamai/ruby-lol">Ruby Lol</a> - Large implementation with many contributors </li>
+<li>
+<a href="https://github.com/danijoo/Sightstone">Sightstone</a> - Uses rest-client but looks to be clean</li>
+<li>
+<a href="https://github.com/anujan/riot-api">riot-api</a> - Another httparty implementation</li>
+<li>
+<a href="http://www.github.com/wanthony/strife">strife</a> - faraday-http-cache + swayer implementation</li>
+<li>
+<a href="https://github.com/franciscomxs/riot_client">riot_client</a> - rest client</li>
+<li>
+<a href="http://github.com/xxswingxx/outrageous">Outrageous</a> - httparty</li>
+</ul><p>I saw these all as large projects up to 60K with many different implementations. </p>
 
-<p>If you got the same output as above then things are working and you can feel free to play around with the gem and use the API however you like.</p>
+<p>This gem has no dependencies other than Ruby. Allowing for a lightweight and flexible design to support a wide variety of use cases with little to no effort.</p>
+
+<h2>
+<a name="mapping" class="anchor" href="#mapping"><span class="octicon octicon-link"></span></a>Mapping</h2>
+
+<p>The mapping refers to the fact that this gem contains a direct unfiltered call to the Riot APIs to allow the flexibility to fetch exactly what you want and need. Every API method is available directly from the Riot specified categories (Game, Champion, League, etc)</p>
+
+<p>Reference the <a href="http://rubydoc.info/gems/league_api/0.2.1/frames">gem docs</a> for more information on the exact naming of these calls. </p>
+
+<p>You can also use <code>LeagueApi.available_requests</code> to see a list of requests that are currently available. </p>
+
+<h2>
+<a name="convenience" class="anchor" href="#convenience"><span class="octicon octicon-link"></span></a>Convenience</h2>
+
+<p>In order to properly support many use cases there is some work to be done with the JSON we have access to. Because of this there are a set of convenience methods that we can use. </p>
+
+<h3>
+<a name="cdn-for-images" class="anchor" href="#cdn-for-images"><span class="octicon octicon-link"></span></a>CDN for Images</h3>
+
+<p>Summoner icons, Items, and Champions have all been linked to the ddragon CDN to allow for easy access. </p>
 
 <h3>
 <a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
