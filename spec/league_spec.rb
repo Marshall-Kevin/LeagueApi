@@ -7,8 +7,8 @@ describe LeagueApi::League do
 	end
 
 	it "should raise an error if a summoner has not joined any leagues" do
-		expect {LeagueApi::League.by_summoner(40314769)}.to raise_error(OpenURI::HTTPError)
-		expect {LeagueApi::League.entry_by_summoner(40314769)}.to raise_error(OpenURI::HTTPError)
+		expect {LeagueApi::League.by_summoner(25258182)}.to raise_error(OpenURI::HTTPError)
+		expect {LeagueApi::League.entry_by_summoner(25258182)}.to raise_error(OpenURI::HTTPError)
 	end
 
 	it "should find league by team_id" do

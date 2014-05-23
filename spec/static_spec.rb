@@ -47,7 +47,7 @@ describe LeagueApi::Static do
 	end
 
 	it "should get current realm information" do
-		@static.get_realm["v"].should == "4.7.8"
+		@static.get_realm["v"].should == "4.7.16"
 		@static.get_realm["l"].should == "en_US"
 		@static.get_realm["cdn"].should == "http://ddragon.leagueoflegends.com/cdn"
 	end
@@ -69,19 +69,19 @@ describe LeagueApi::Static do
 	end
 
 	it "should get the current versions of the game" do
-		@static.get_versions.first.should == "4.7.8"
+		@static.get_versions.first.should == "4.8.3"
 	end
 
 	it "should get the ddragon image url for the given item id" do
-		@static.get_item_image(2009).should == "http://ddragon.leagueoflegends.com/cdn/4.7.8/img/item/2009.png"
+		@static.get_item_image(2009).should == "http://ddragon.leagueoflegends.com/cdn/4.8.3/img/item/2009.png"
 	end
 
 	it "should get the ddragon image url for a given champion name" do
-		@static.get_champion_image("Aatrox").should == "http://ddragon.leagueoflegends.com/cdn/4.7.8/img/champion/Aatrox.png"
+		@static.get_champion_image("Aatrox").should == "http://ddragon.leagueoflegends.com/cdn/4.8.3/img/champion/Aatrox.png"
 	end
 
 	it "should get the summoner image from ddragon cdn" do
-		@static.get_summoner_image(0).should == "http://ddragon.leagueoflegends.com/cdn/4.7.8/img/sprite/spell0.png"
+		@static.get_summoner_image(0).should == "http://ddragon.leagueoflegends.com/cdn/4.8.3/img/sprite/spell0.png"
 	end
 
 end
