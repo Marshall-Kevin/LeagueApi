@@ -8,7 +8,7 @@ module LeagueApi
     end
 
     # Pass in stats from game info and get an readable stat hash to iterate on
-    def get_important_stats(hash)
+    def self.get_important_stats(hash)
       s = {}
       #manually add every stat we want
       s["Gold Earned"] = hash["goldEarned"]
