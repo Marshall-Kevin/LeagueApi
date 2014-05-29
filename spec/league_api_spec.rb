@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LeagueApi do
 	it "should gather all available requests for the gem" do
-		LeagueApi.available_requests.keys.should == [LeagueApi::Champion, LeagueApi::Static, LeagueApi::Game, LeagueApi::Summoner, LeagueApi::League, LeagueApi::Team, LeagueApi::Stats]
+		LeagueApi.available_requests.keys.should == [LeagueApi::Champion, LeagueApi::Static, LeagueApi::Game, LeagueApi::Summoner, LeagueApi::League, LeagueApi::Team, LeagueApi::Stats, LeagueApi::Util]
 	end
 
 	it "should return a list of Champions" do

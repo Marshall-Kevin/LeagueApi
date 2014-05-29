@@ -47,6 +47,9 @@ module LeagueApi
       s
     end
 
+    def self.requests
+      %w( organize_players(player_list) get_game_stats(game_stats_hash) )
+    end
 
   end
 end
