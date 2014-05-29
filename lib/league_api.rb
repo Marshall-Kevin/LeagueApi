@@ -7,6 +7,7 @@ require 'league_api/summoner'
 require 'league_api/league'
 require 'league_api/team'
 require 'league_api/stats'
+require 'league_api/util'
 
 module LeagueApi
   extend self
