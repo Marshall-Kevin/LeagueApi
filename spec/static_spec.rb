@@ -47,7 +47,7 @@ describe LeagueApi::Static do
 	end
 
 	it "should get current realm information" do
-		@static.get_realm["v"].should == "4.7.16"
+		@static.get_realm["v"].should == "4.8.3" #Weirdness that this doesn't match static version before champion release
 		@static.get_realm["l"].should == "en_US"
 		@static.get_realm["cdn"].should == "http://ddragon.leagueoflegends.com/cdn"
 	end
