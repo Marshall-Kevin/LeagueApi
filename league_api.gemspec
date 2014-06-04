@@ -4,11 +4,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "league_api"
-  spec.version       = "0.3.0"
+  spec.version       = "0.4.0"
   spec.authors       = ["DanBradbury"]
   spec.email         = ["dan.luckydaisy@gmail.com"]
-  spec.summary       = %q{Requests to Riot Developer API}
-  spec.description   = %q{1-1 Mapping of Riot Developer APIs to a simple/convenient abstraction. Always updating to add more helpful abstractions and uses that utilize the API to the fullest}
+  spec.summary       = %q{Requests to Riot Developer API with Additional Utilities}
+  spec.description   = %q{1-1 Mapping of the Riot Developer APIs. Mapping is returned in a <Hash> for convenience. Additional methods have been / will be continuously added in order to support ease of use across a variety of use cases. The restriction is only to properly use the rate limit and submit a PR with tests.}
   spec.homepage      = "http://danbradbury.github.io/LeagueApi/"
   spec.license       = "MIT"
 
@@ -18,6 +18,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "rspec", "~> 2.10"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "pry"
+  spec.add_development_dependency "rake", "~> 10.3"
+  spec.add_development_dependency "pry", "~> 0.9.12"
 end
