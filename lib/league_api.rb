@@ -40,6 +40,8 @@ module LeagueApi
     c = self.constants
     requests = {}
 
+    requests[LeagueApi] = self.instance_methods.map &:to_s
+
     c.each do |i|
       requests[eval(i.to_s)] = eval(i.to_s).requests
     end
