@@ -1,5 +1,5 @@
 module LeagueApi
-	
+
 	class Util
 
     # Takes fellow_player hash from game info and splits into team 1 and team 2 (prepend lookup team1)
@@ -21,7 +21,7 @@ module LeagueApi
       s["Largest Killing Sprees"] = game["largestKillingSpree"]
       s["Neutral Minions Killed"] = game["neutralMinionsKilled"]
       s["Largest Multikill"] = game["largestMultiKill"]
-      
+
       s["Physical Damage Dealt"] = game["physicalDamageDealtPlayer"]
       s["Magic Damage Dealt"] = game["magicDamageDealtPlayer"]
       s["Physical Damage To Champions"] = game["physicalDamageDealtToChampions"]

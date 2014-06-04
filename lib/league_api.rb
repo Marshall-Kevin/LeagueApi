@@ -19,16 +19,16 @@ module LeagueApi
     url = base + modifier
 
     if params
-    
+
       params.each do |p|
         url << '?'+p[0]+'='+p[1]
       end
       url += '&api_key=' + @api_key
-    
+
     else
 
       url += '?api_key=' + @api_key
-    
+
     end
 
     uri = URI.parse(url)
@@ -39,11 +39,11 @@ module LeagueApi
   def available_requests
     c = self.constants
     requests = {}
-    
+
     c.each do |i|
       requests[eval(i.to_s)] = eval(i.to_s).requests
     end
-    
+
     requests
   end
 

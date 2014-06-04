@@ -63,11 +63,11 @@ module LeagueApi
     def self.get_inverted_champion_list
       hash = get_champion_list
       r = {}
-      
+
       hash.each do |e|
         r[ e[1]["id"] ] = e[0]
       end
-      
+
       r
     end
 

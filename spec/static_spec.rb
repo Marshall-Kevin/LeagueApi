@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 describe LeagueApi::Static do
-	
-	before(:each) do 
+
+	before :all do
 		@static = LeagueApi::Static
-	end
+    REALM_VERSION = "4.8.3"
+    GAME_VERSION = "4.9.1"
+  end
 
 	it "should get a recent champion list" do
 		@static.get_champion_list.first.should == ["Aatrox", {"id"=>266, "key"=>"Aatrox", "name"=>"Aatrox", "title"=>"the Darkin Blade"}]
@@ -19,7 +21,7 @@ describe LeagueApi::Static do
 	end
 
 	it "should return an error on bad champion name" do
-		expect {@static.get_champion_by_name("Aatox")}.to raise_error 
+		expect {@static.get_champion_by_name("Aatox")}.to raise_error
 	end
 
 	it "should return data given a proper champion id" do
@@ -47,7 +49,7 @@ describe LeagueApi::Static do
 	end
 
 	it "should get current realm information" do
-		@static.get_realm["v"].should == "4.8.3" #Weirdness that this doesn't match static version before champion release
+		@static.get_realm["v"].should == REALM_VERSION
 		@static.get_realm["l"].should == "en_US"
 		@static.get_realm["cdn"].should == "http://ddragon.leagueoflegends.com/cdn"
 	end
@@ -69,19 +71,19 @@ describe LeagueApi::Static do
 	end
 
 	it "should get the current versions of the game" do
-		@static.get_versions.first.should == "4.8.3"
+		@static.get_versions.first.should == GAME_VERSION
 	end
 
 	it "should get the ddragon image url for the given item id" do
-		@static.get_item_image(2009).should == "http://ddragon.leagueoflegends.com/cdn/4.8.3/img/item/2009.png"
+		@static.get_item_image(2009).should == "http://ddragon.leagueoflegends.com/cdn/#{GAME_VERSION}/img/item/2009.png"
 	end
 
 	it "should get the ddragon image url for a given champion name" do
-		@static.get_champion_image("Aatrox").should == "http://ddragon.leagueoflegends.com/cdn/4.8.3/img/champion/Aatrox.png"
+		@static.get_champion_image("Aatrox").should == "http://ddragon.leagueoflegends.com/cdn/#{GAME_VERSION}/img/champion/Aatrox.png"
 	end
 
 	it "should get the summoner image from ddragon cdn" do
-		@static.get_summoner_image(0).should == "http://ddragon.leagueoflegends.com/cdn/4.8.3/img/sprite/spell0.png"
+		@static.get_summoner_image(0).should == "http://ddragon.leagueoflegends.com/cdn/#{GAME_VERSION}/img/sprite/spell0.png"
 	end
 
 end

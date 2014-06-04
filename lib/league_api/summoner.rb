@@ -1,7 +1,7 @@
 module LeagueApi
 
   class Summoner
-  
+
     @base_url = 'https://prod.api.pvp.net/api/lol/na/v1.4/summoner/'
 
     def self.make_request(str)

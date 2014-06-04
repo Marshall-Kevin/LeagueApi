@@ -23,7 +23,7 @@ module LeagueApi
     def self.requests
       %w( get_list get_free_champs get_by_id(champion_id) )
     end
-  
+
   end
 
 end

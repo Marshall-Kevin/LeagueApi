@@ -1,22 +1,14 @@
 require 'spec_helper'
+require 'pry'
 
 describe LeagueApi::Champion do
-	
+  before :all do
+		CHAMP_NUM = 119 #As of Patch 4.7
+  end
 	it 'should return correct champion list' do
 		list = LeagueApi::Champion.get_list
-
 		list.first["id"].should == 266
-		list.size.should == 119 #As of Patch 4.7
-	end
-
-	it "should find champion by id" do
-		LeagueApi::Champion.get_by_id(1).should == 
-		{	"id"=>1,
-			"active"=>true,
-			"botEnabled"=>true,
-			"freeToPlay"=>false,
-			"botMmEnabled"=>true,
-			"rankedPlayEnabled"=>true }
+		list.size.should == CHAMP_NUM
 	end
 
 	it "should only find free to play champions" do

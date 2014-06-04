@@ -1,7 +1,7 @@
 module LeagueApi
-  
+
   class Stats
-    
+
     @base_url = 'https://prod.api.pvp.net/api/lol/na/v1.3/stats/by-summoner/'
 
     def self.make_request(str, params=nil)
