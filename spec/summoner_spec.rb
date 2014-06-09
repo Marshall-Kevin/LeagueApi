@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LeagueApi::Summoner do
 
-	before(:each) do
+	before(:all) do
 		@summoner = LeagueApi::Summoner
 	end
 
