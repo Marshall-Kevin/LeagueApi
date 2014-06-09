@@ -51,5 +51,30 @@ module LeagueApi
       %w( organize_players(player_list) get_game_stats(game_stats_hash) )
     end
 
+    def self.get_raw_item_list(stats)
+      item_list =  []
+
+      7.times do |i|
+          item_list[i] = stats["item#{i}"]
+      end
+
+      item_list
+    end
+
+    def self.get_item_list(stats)
+      raw_list = get_raw_item_list(stats)
+      item_list = []
+
+      7.times do |i|
+        if raw_list[i].nil?
+          item_list[i] = "None" if raw_list[i].nil?
+        else
+          item_list[i] = LeagueApi::Static.get_item_by_id(raw_list[i])["name"] if raw_list[i]
+        end
+      end
+
+      item_list
+    end
+
   end
 end
