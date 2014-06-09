@@ -4,7 +4,7 @@ describe LeagueApi::Static do
 
 	before :all do
 		@static = LeagueApi::Static
-    REALM_VERSION = "4.8.3"
+    REALM_VERSION = "4.9.1"
     GAME_VERSION = "4.9.1"
   end
 
