@@ -2,10 +2,12 @@ module LeagueApi
 
   class Team
 
-    @base_url = 'https://prod.api.pvp.net/api/lol/na/v2.2/team/'
+    @base_url = 'https://prod.api.pvp.net/api/lol/'
+    @post_url = '/v2.2/team/'
 
-    def self.make_request(str)
-      LeagueApi.make_request(@base_url, str)
+    def self.make_request(str, region=nil)
+      @region = LeagueApi.get_region region
+      LeagueApi.make_request(@base_url+@region+@post_url, str)
     end
 
     def self.by_summoner(id)

@@ -2,10 +2,12 @@ module LeagueApi
 
   class Summoner
 
-    @base_url = 'https://prod.api.pvp.net/api/lol/na/v1.4/summoner/'
+    @base_url = 'https://prod.api.pvp.net/api/lol/'
+    @post_url = '/v1.4/summoner/'
 
-    def self.make_request(str)
-      LeagueApi.make_request(@base_url, str)
+    def self.make_request(str, region=nil)
+      @region = LeagueApi.get_region region
+      LeagueApi.make_request(@base_url+@region+@post_url, str)
     end
 
     def self.find_by_name(name)

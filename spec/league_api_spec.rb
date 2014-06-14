@@ -29,4 +29,16 @@ describe LeagueApi do
 		LeagueApi.get_time_of_last_game(25087996).class.should == Time
 	end
 
+	it "should get the current region" do
+		$region == "na"
+		
+		LeagueApi.set_region "eu"
+		$region == "eu"
+	end
+
+	it "should get the current region passed in rather than the global region" do
+		LeagueApi.get_region "eu".should == "eu"
+		LeagueApi.get_region.should == "na"
+	end
+
 end

@@ -1,10 +1,12 @@
 module LeagueApi
 
   class Static
-    @base_url = 'https://prod.api.pvp.net/api/lol/static-data/na/v1.2/'
+    @base_url = "https://prod.api.pvp.net/api/lol/static-data/"
+    @post_url = "/v1.2/"
 
-    def self.make_request(str)
-      LeagueApi.make_request(@base_url, str)
+    def self.make_request(str, region=nil)
+      @region = LeagueApi.get_region region
+      LeagueApi.make_request(@base_url+@region+@post_url, str)
     end
 
     # Return a hash of all champions. [name, {data, ..}]

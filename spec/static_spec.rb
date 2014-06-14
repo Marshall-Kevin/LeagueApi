@@ -5,7 +5,7 @@ describe LeagueApi::Static do
 	before :all do
 		@static = LeagueApi::Static
     REALM_VERSION = "4.9.1"
-    GAME_VERSION = "4.9.1"
+    GAME_VERSION = "4.10.2"
   end
 
 	it "should get a recent champion list" do
@@ -75,15 +75,15 @@ describe LeagueApi::Static do
 	end
 
 	it "should get the ddragon image url for the given item id" do
-		@static.get_item_image(2009).should == "http://ddragon.leagueoflegends.com/cdn/#{GAME_VERSION}/img/item/2009.png"
+		@static.get_item_image(2009).should == "http://ddragon.leagueoflegends.com/cdn/#{REALM_VERSION}/img/item/2009.png"
 	end
 
 	it "should get the ddragon image url for a given champion name" do
-		@static.get_champion_image("Aatrox").should == "http://ddragon.leagueoflegends.com/cdn/#{GAME_VERSION}/img/champion/Aatrox.png"
+		@static.get_champion_image("Aatrox").should == "http://ddragon.leagueoflegends.com/cdn/#{REALM_VERSION}/img/champion/Aatrox.png"
 	end
 
 	it "should get the summoner image from ddragon cdn" do
-		@static.get_summoner_image(0).should == "http://ddragon.leagueoflegends.com/cdn/#{GAME_VERSION}/img/sprite/spell0.png"
+		@static.get_summoner_image(0).should == "http://ddragon.leagueoflegends.com/cdn/#{REALM_VERSION}/img/sprite/spell0.png"
 	end
 
 end
