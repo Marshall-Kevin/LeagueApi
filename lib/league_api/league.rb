@@ -7,7 +7,11 @@ module LeagueApi
 
     def self.make_request(str, params=nil, region=nil)
       @region = LeagueApi.get_region region
-      LeagueApi.make_request(@base_url+@region+@post_url, str, params)
+      if @region=="euw"
+        LeagueApi.make_request(@base_url.gsub("prod.api.pvp.net","euw.api.pvp.net")+@region+@post_url, str, params)
+      else
+        LeagueApi.make_request(@base_url+@region+@post_url, str, params)
+      end       
     end
 
     def self.by_summoner(id)

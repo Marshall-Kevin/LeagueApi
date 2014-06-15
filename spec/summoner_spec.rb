@@ -10,6 +10,7 @@ describe LeagueApi::Summoner do
 		@summoner.find_by_name('iSixPool')["id"].should == 25087996
 		@summoner.find_by_name('VG Manfish')["id"].should == 22914691
 		@summoner.find_by_name('hellaninja')["name"].should == "Hellaninja"
+		@summoner.find_by_name('Pablô', "euw")["id"].should == 31821331
 	end
 
 	it "should find summoners given a comma seperated list of ids" do

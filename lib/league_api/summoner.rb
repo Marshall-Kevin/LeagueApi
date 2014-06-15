@@ -7,12 +7,16 @@ module LeagueApi
 
     def self.make_request(str, region=nil)
       @region = LeagueApi.get_region region
-      LeagueApi.make_request(@base_url+@region+@post_url, str)
+      if @region=="euw"
+        LeagueApi.make_request(@base_url.gsub("prod.api.pvp.net","euw.api.pvp.net")+@region+@post_url, str)
+      else
+        LeagueApi.make_request(@base_url+@region+@post_url, str)
+      end       
     end
 
-    def self.find_by_name(name)
+    def self.find_by_name(name,region=nil)
       @name = URI.escape(name, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
-      make_request('by-name/'+@name)[name.gsub(" ", "").downcase]
+      make_request('by-name/'+@name,region)[name.gsub(" ", "").downcase]
     end
 
     # Get Summoner Objects mapped by summoner ID for a given a comma seperated list of summoner IDs

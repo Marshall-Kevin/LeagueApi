@@ -6,7 +6,11 @@ module LeagueApi
 
     def self.make_request(str, region=nil)
       @region = LeagueApi.get_region region
-      LeagueApi.make_request(@base_url+@region+@post_url, str)
+      if @region=="euw"
+        LeagueApi.make_request(@base_url.gsub("prod.api.pvp.net","euw.api.pvp.net")+@region+@post_url, str)
+      else
+        LeagueApi.make_request(@base_url+@region+@post_url, str)
+      end       
     end
 
     # Return a hash of all champions. [name, {data, ..}]
