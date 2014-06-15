@@ -7,11 +7,9 @@ module LeagueApi
 
     def self.make_request(str, params=nil, region=nil)
       @region = LeagueApi.get_region region
-      if @region=="euw"
-        LeagueApi.make_request(@base_url.gsub("prod.api.pvp.net","euw.api.pvp.net")+@region+@post_url, str)
-      else
-        LeagueApi.make_request(@base_url+@region+@post_url, str)
-      end       
+      base = LeagueApi.change_base(@base_url, @region)
+
+      LeagueApi.make_request(base+@region+@post_url, str, params)
     end
 
     def self.ranked(id, season="SEASON4")

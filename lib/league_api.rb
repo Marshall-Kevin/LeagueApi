@@ -50,6 +50,31 @@ module LeagueApi
     end
   end
 
+  def change_base(url, region)
+    case region
+    when "euw"
+      url.gsub("na.api.pvp.net","euw.api.pvp.net")
+    when "br"
+      url.gsub("na.api.pvp.net","br.api.pvp.net")
+    when "eune"
+      url.gsub("na.api.pvp.net","eune.api.pvp.net")
+    when "kr"
+      url.gsub("na.api.pvp.net","kr.api.pvp.net")
+    when "las"
+      url.gsub("na.api.pvp.net","las.api.pvp.net")
+    when "lan"
+      url.gsub("na.api.pvp.net","lan.api.pvp.net")
+    when "oce"
+      url.gsub("na.api.pvp.net","oce.api.pvp.net")
+    when "tr"
+      url.gsub("na.api.pvp.net","tr.api.pvp.net")
+    when "ru"
+      url.gsub("na.api.pvp.net","ru.api.pvp.net")
+    else
+      url #Cause USA #1
+    end
+  end
+
   #Display all available Requests for all API classes
   def available_requests
     c = self.constants
