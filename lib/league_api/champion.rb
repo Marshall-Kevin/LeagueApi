@@ -1,27 +1,23 @@
 module LeagueApi
 
   class Champion
-    @base_url = "https://prod.api.pvp.net/api/lol/"
-    @post_url = "/v1.2/"
+    @base_url = "https://prod.api.pvp.net/api/lol/na/v1.2/"
 
     def self.make_request(str, params=nil, region=nil)
-      @region = LeagueApi.get_region region
-      base = LeagueApi.change_base(@base_url, @region)
-
-      LeagueApi.make_request(base+@region+@post_url, str,params)
+      LeagueApi.make_request(@base_url, str,params, region)
     end
 
-    def self.get_free_champs
+    def self.get_free_champs(region=nil)
       params = {"freeToPlay" => "true"}
-      make_request('champion', params)["champions"]
+      make_request('champion', params, region)["champions"]
     end
 
-    def self.get_list
-      make_request('champion')["champions"]
+    def self.get_list(region=nil)
+      make_request('champion', region)["champions"]
  	  end
 
-    def self.get_by_id(id)
-      make_request('champion/'+id.to_s)
+    def self.get_by_id(id, region=nil)
+      make_request('champion/'+id.to_s, region)
     end
 
     def self.requests

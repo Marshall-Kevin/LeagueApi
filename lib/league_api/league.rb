@@ -2,33 +2,29 @@ module LeagueApi
 
   class League
 
-    @base_url = 'https://prod.api.pvp.net/api/lol/'
-    @post_url = '/v2.3/league/'
+    @base_url = 'https://prod.api.pvp.net/api/lol/na/v2.3/league/'
 
     def self.make_request(str, params=nil, region=nil)
-      @region = LeagueApi.get_region region
-      base = LeagueApi.change_base(@base_url, @region)
-
-      LeagueApi.make_request(base+@region+@post_url, str, params)
+      LeagueApi.make_request(@base_url, str, params, region)
     end
 
-    def self.by_summoner(id)
+    def self.by_summoner(id, region=nil)
       make_request('by-summoner/'+id.to_s)
     end
 
-    def self.entry_by_summoner(id)
+    def self.entry_by_summoner(id, region=nil)
       make_request('by-summoner/'+id.to_s+'/entry')
     end
 
-    def self.by_team(id)
+    def self.by_team(id, region=nil)
       make_request('by-team/'+id.to_s)
     end
 
-    def self.entry_by_team(id)
+    def self.entry_by_team(id, region=nil)
       make_request('by-team/'+id.to_s+'/entry')
     end
 
-    def self.get_challenger(queue="RANKED_SOLO_5x5")
+    def self.get_challenger(queue="RANKED_SOLO_5x5", region=nil)
       params = {"type" => queue}
       make_request('challenger', params)
     end

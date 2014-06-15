@@ -2,21 +2,17 @@ module LeagueApi
 
   class Team
 
-    @base_url = 'https://prod.api.pvp.net/api/lol/'
-    @post_url = '/v2.2/team/'
+    @base_url = 'https://prod.api.pvp.net/api/lol/na/v2.2/team/'
 
     def self.make_request(str, region=nil)
-      @region = LeagueApi.get_region region
-      base = LeagueApi.change_base(@base_url, @region)
-
-      LeagueApi.make_request(base+@region+@post_url, str)
+      LeagueApi.make_request(@base_url, str, nil, region)
     end
 
-    def self.by_summoner(id)
+    def self.by_summoner(id, region=nil)
       make_request('by-summoner/'+id.to_s)
     end
 
-    def self.find_teams(str)
+    def self.find_teams(str, region=nil)
       make_request(str.gsub(" ",""))
     end
 

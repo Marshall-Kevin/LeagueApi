@@ -2,36 +2,31 @@ module LeagueApi
 
   class Summoner
 
-    @base_url = 'https://na.api.pvp.net/api/lol/'
-    @post_url = '/v1.4/summoner/'
+    @base_url = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/'
 
     def self.make_request(str, region=nil)
-      @region = LeagueApi.get_region region
-
-      base = LeagueApi.change_base(@base_url, @region)
-
-      LeagueApi.make_request(base+@region+@post_url, str)
+      LeagueApi.make_request(@base_url, str, nil, region)
     end
 
-    def self.find_by_name(name,region=nil)
+    def self.find_by_name(name, region=nil)
       @name = URI.escape(name, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
       make_request('by-name/'+@name,region)[name.gsub(" ", "").downcase]
     end
 
     # Get Summoner Objects mapped by summoner ID for a given a comma seperated list of summoner IDs
-    def self.find_summoners(str)
+    def self.find_summoners(str, region=nil)
       make_request(str.gsub(" ", ""))
     end
 
-    def self.get_masteries(summoners)
+    def self.get_masteries(summoners, region=nil)
       make_request(summoners.gsub(" ", "")+'/masteries')
     end
 
-    def self.get_names(summoners)
+    def self.get_names(summoners, region=nil)
       make_request(summoners.gsub(" ", "")+'/name')
     end
 
-    def self.get_runes(summoners)
+    def self.get_runes(summoners, region=nil)
       make_request(summoners.gsub(" ", "")+'/runes')
     end
 

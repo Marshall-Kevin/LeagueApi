@@ -1,67 +1,63 @@
 module LeagueApi
 
   class Static
-    @base_url = "https://prod.api.pvp.net/api/lol/static-data/"
-    @post_url = "/v1.2/"
+    @base_url = "https://prod.api.pvp.net/api/lol/static-data/na/v1.2/"
 
     def self.make_request(str, region=nil)
-      @region = LeagueApi.get_region region
-      base = LeagueApi.change_base(@base_url, @region)
-
-      LeagueApi.make_request(base+@region+@post_url, str)
+      LeagueApi.make_request(@base_url, str, nil, region)
     end
 
     # Return a hash of all champions. [name, {data, ..}]
-    def self.get_champion_list
-      make_request('champion')["data"]
+    def self.get_champion_list(region=nil)
+      make_request('champion', region)["data"]
     end
 
-    def self.get_champion_by_name(name)
-      make_request('champion')["data"].fetch(name)
+    def self.get_champion_by_name(name, region=nil)
+      make_request('champion', region)["data"].fetch(name)
     end
 
-    def self.get_champion_by_id(id)
-      make_request('champion/'+id.to_s)
+    def self.get_champion_by_id(id, region=nil)
+      make_request('champion/'+id.to_s, region)
     end
 
-    def self.get_item_list
-      make_request('item')["data"]
+    def self.get_item_list(region=nil)
+      make_request('item', region)["data"]
     end
 
-    def self.get_item_by_id(id)
-      make_request('item/'+id.to_s)
+    def self.get_item_by_id(id, region=nil)
+      make_request('item/'+id.to_s, region)
     end
 
-    def self.get_mastery_list
-      make_request('mastery')["data"]
+    def self.get_mastery_list(region=nil)
+      make_request('mastery', region)["data"]
     end
 
-    def self.get_mastery_by_id(id)
-      make_request('mastery/'+id.to_s)
+    def self.get_mastery_by_id(id, region=nil)
+      make_request('mastery/'+id.to_s, region)
     end
 
-    def self.get_realm
-      make_request('realm')
+    def self.get_realm(region=nil)
+      make_request('realm', region)
     end
 
-    def self.get_rune_list
-      make_request('rune')["data"]
+    def self.get_rune_list(region=nil)
+      make_request('rune', region)["data"]
     end
 
-    def self.get_rune_by_id(id)
-      make_request('rune/'+id.to_s)
+    def self.get_rune_by_id(id, region=nil)
+      make_request('rune/'+id.to_s, region)
     end
 
-    def self.get_summoner_spells
-      make_request('summoner-spell')["data"]
+    def self.get_summoner_spells(region=nil)
+      make_request('summoner-spell', region)["data"]
     end
 
-    def self.get_summoner_by_id(id)
-      make_request('summoner-spell/'+id.to_s)
+    def self.get_summoner_by_id(id, region=nil)
+      make_request('summoner-spell/'+id.to_s, region)
     end
 
-    def self.get_versions
-      make_request('versions')
+    def self.get_versions(region=nil)
+      make_request('versions', region)
     end
 
     def self.get_inverted_champion_list

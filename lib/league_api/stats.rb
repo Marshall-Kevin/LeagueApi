@@ -2,24 +2,20 @@ module LeagueApi
 
   class Stats
 
-    @base_url = "https://prod.api.pvp.net/api/lol/"
-    @post_url = "/v1.3/stats/by-summoner/"
+    @base_url = "https://prod.api.pvp.net/api/lol/na/v1.3/stats/by-summoner/"
 
     def self.make_request(str, params=nil, region=nil)
-      @region = LeagueApi.get_region region
-      base = LeagueApi.change_base(@base_url, @region)
-
-      LeagueApi.make_request(base+@region+@post_url, str, params)
+      LeagueApi.make_request(@base_url, str, params, region)
     end
 
-    def self.ranked(id, season="SEASON4")
+    def self.ranked(id, season="SEASON4", region=nil)
       params = {"season" => season}
-      make_request(id.to_s+'/ranked', params)
+      make_request(id.to_s+'/ranked', params, region)
     end
 
-    def self.summary(id, season="SEASON4")
+    def self.summary(id, season="SEASON4", region=nil)
       params = {"season" => season}
-      make_request(id.to_s+'/summary', params)
+      make_request(id.to_s+'/summary', params, region)
     end
 
     def self.requests
