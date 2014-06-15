@@ -15,6 +15,7 @@ describe LeagueApi do
 
 	it "should fetch a summoners id from the summoner name" do
 		LeagueApi.get_summoner_id("iSixPool").should == 25087996
+		LeagueApi.get_summoner_id("Pablô", "euw").should == 31821331
 	end
 
 	it "should get the last played game from summoner id" do

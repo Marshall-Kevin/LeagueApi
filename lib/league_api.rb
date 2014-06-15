@@ -115,24 +115,24 @@ module LeagueApi
   end
 
   # Return player id given the summoner name
-  def get_summoner_id(str)
-    Summoner.find_by_name(str)["id"]
+  def get_summoner_id(str, region=nil)
+    Summoner.find_by_name(str, region)["id"]
   end
 
   # Return unformatted JSON of the last game played
-  def get_last_game_played(id)
-    Game.recent_games(id).first
+  def get_last_game_played(id, region=nil)
+    Game.recent_games(id, region).first
   end
 
   # Return a String for the last champion played
-  def get_last_champion_played(id)
-    champ_id = Game.recent_games(id).first["championId"]
+  def get_last_champion_played(id, region=nil)
+    champ_id = Game.recent_games(id, region).first["championId"]
     Static.get_inverted_champion_list[champ_id]
   end
 
   # Return the Time for the last played game
-  def get_time_of_last_game(id)
-    Time.at( Game.recent_games(id).first["createDate"] / 1000 )
+  def get_time_of_last_game(id, region=nil)
+    Time.at( Game.recent_games(id, region).first["createDate"] / 1000 )
   end
 
 end
