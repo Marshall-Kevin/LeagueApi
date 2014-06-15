@@ -11,7 +11,8 @@ module LeagueApi
     end
 
     def self.find_by_name(name)
-      make_request('by-name/'+name)[name.downcase]
+      @name = URI.escape(name, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+      make_request('by-name/'+@name)[name.gsub(" ", "").downcase]
     end
 
     # Get Summoner Objects mapped by summoner ID for a given a comma seperated list of summoner IDs

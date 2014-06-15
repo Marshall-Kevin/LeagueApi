@@ -8,6 +8,7 @@ describe LeagueApi::Summoner do
 
 	it "should find summoner by name" do
 		@summoner.find_by_name('iSixPool')["id"].should == 25087996
+		@summoner.find_by_name('VG Manfish')["id"].should == 22914691
 		@summoner.find_by_name('hellaninja')["name"].should == "Hellaninja"
 	end
 
