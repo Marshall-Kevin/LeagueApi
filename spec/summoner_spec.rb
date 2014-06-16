@@ -12,7 +12,6 @@ describe LeagueApi::Summoner do
 		@summoner.find_by_name('Pablô', "euw")["id"].should == 31821331
 		@summoner.find_by_name('Sayó', "eune")["id"].should == 21749000
 		@summoner.find_by_name('Raâziel', "tr")["id"].should == 530375
-		#@summoner.find_by_name('Китай тиран', "ru")["id"].should == 12312 
 		@summoner.find_by_name('Ke Yi Cao Ni Ma', "oce")["id"].should == 327638
 		@summoner.find_by_name('Chingon', "las")["id"].should == 553880
 		@summoner.find_by_name('ChingoN', "lan")["id"].should == 199926

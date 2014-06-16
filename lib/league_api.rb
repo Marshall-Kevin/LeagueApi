@@ -64,23 +64,23 @@ module LeagueApi
   def change_base(url, region)
     case region
     when "euw"
-      url.gsub("na.api.pvp.net","euw.api.pvp.net").gsub("na","euw")
+      url.gsub("prod.api.pvp.net","euw.api.pvp.net").gsub("na","euw")
     when "br"
-      url.gsub("na.api.pvp.net","br.api.pvp.net").gsub("na","br")
+      url.gsub("prod.api.pvp.net","br.api.pvp.net").gsub("na","br")
     when "eune"
-      url.gsub("na.api.pvp.net","eune.api.pvp.net").gsub("na","eune")
+      url.gsub("prod.api.pvp.net","eune.api.pvp.net").gsub("na","eune")
     when "kr"
-      url.gsub("na.api.pvp.net","kr.api.pvp.net").gsub("na","kr")
+      url.gsub("prod.api.pvp.net","kr.api.pvp.net").gsub("na","kr")
     when "las"
-      url.gsub("na.api.pvp.net","las.api.pvp.net").gsub("na","las")
+      url.gsub("prod.api.pvp.net","las.api.pvp.net").gsub("na","las")
     when "lan"
-      url.gsub("na.api.pvp.net","lan.api.pvp.net").gsub("na","lan")
+      url.gsub("prod.api.pvp.net","lan.api.pvp.net").gsub("na","lan")
     when "oce"
-      url.gsub("na.api.pvp.net","oce.api.pvp.net").gsub("na","oce")
+      url.gsub("prod.api.pvp.net","oce.api.pvp.net").gsub("na","oce")
     when "tr"
-      url.gsub("na.api.pvp.net","tr.api.pvp.net").gsub("na","tr")
+      url.gsub("prod.api.pvp.net","tr.api.pvp.net").gsub("na","tr")
     when "ru"
-      url.gsub("na.api.pvp.net","ru.api.pvp.net").gsub("na","ru")
+      url.gsub("prod.api.pvp.net","ru.api.pvp.net").gsub("na","ru")
     else
       url #Cause USA #1
     end
