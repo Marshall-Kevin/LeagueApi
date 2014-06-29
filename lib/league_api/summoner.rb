@@ -15,19 +15,19 @@ module LeagueApi
 
     # Get Summoner Objects mapped by summoner ID for a given a comma seperated list of summoner IDs
     def self.find_summoners(str, region=nil)
-      make_request(str.gsub(" ", ""))
+      make_request(str.gsub(" ", ""), region)
     end
 
     def self.get_masteries(summoners, region=nil)
-      make_request(summoners.gsub(" ", "")+'/masteries')
+      make_request(summoners.gsub(" ", "")+'/masteries', region)
     end
 
     def self.get_names(summoners, region=nil)
-      make_request(summoners.gsub(" ", "")+'/name')
+      make_request(summoners.gsub(" ", "")+'/name', region)
     end
 
     def self.get_runes(summoners, region=nil)
-      make_request(summoners.gsub(" ", "")+'/runes')
+      make_request(summoners.gsub(" ", "")+'/runes', region)
     end
 
     def self.requests
