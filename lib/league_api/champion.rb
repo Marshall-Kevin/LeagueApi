@@ -13,11 +13,11 @@ module LeagueApi
     end
 
     def self.get_list(region=nil)
-      make_request('champion', region)["champions"]
+      make_request('champion', nil, region)["champions"]
  	  end
 
     def self.get_by_id(id, region=nil)
-      make_request('champion/'+id.to_s, region)
+      make_request('champion/'+id.to_s, nil, region)
     end
 
     def self.requests

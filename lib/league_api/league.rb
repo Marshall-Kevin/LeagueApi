@@ -9,19 +9,19 @@ module LeagueApi
     end
 
     def self.by_summoner(id, region=nil)
-      make_request('by-summoner/'+id.to_s, region)
+      make_request('by-summoner/'+id.to_s, nil, region)
     end
 
     def self.entry_by_summoner(id, region=nil)
-      make_request('by-summoner/'+id.to_s+'/entry', region)
+      make_request('by-summoner/'+id.to_s+'/entry', nil, region)
     end
 
     def self.by_team(id, region=nil)
-      make_request('by-team/'+id.to_s, region)
+      make_request('by-team/'+id.to_s, nil, region)
     end
 
     def self.entry_by_team(id, region=nil)
-      make_request('by-team/'+id.to_s+'/entry', region)
+      make_request('by-team/'+id.to_s+'/entry', nil, region)
     end
 
     def self.get_challenger(queue="RANKED_SOLO_5x5", region=nil)
