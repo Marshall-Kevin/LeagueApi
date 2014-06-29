@@ -9,11 +9,11 @@ module LeagueApi
     end
 
     def self.by_summoner(id, region=nil)
-      make_request('by-summoner/'+id.to_s)
+      make_request('by-summoner/'+id.to_s, region)
     end
 
     def self.find_teams(str, region=nil)
-      make_request(str.gsub(" ",""))
+      make_request(str.gsub(" ",""), region)
     end
 
     def self.requests
