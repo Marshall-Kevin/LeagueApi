@@ -7,12 +7,12 @@ describe LeagueApi::Summoner do
 	end
 
 	it "should find summoner by name" do
-		@summoner.find_by_name('VG Manfish')["id"].should == 22914691
-		@summoner.find_by_name('hellaninja')["name"].should == "Hellaninja"
+		@summoner.find_by_name('I Six Pool')["id"].should == 25087996
+		@summoner.find_by_name('hellaninja')["name"].should == "Hellaninja" #this guys a noob
 		@summoner.find_by_name('Pablô', "euw")["id"].should == 31821331
 		@summoner.find_by_name('Sayó', "eune")["id"].should == 21749000
-		@summoner.find_by_name('Raâziel', "tr")["id"].should == 530375
-		@summoner.find_by_name('Ke Yi Cao Ni Ma', "oce")["id"].should == 327638
+		@summoner.find_by_name('Friend', "tr")["id"].should == 870193
+		@summoner.find_by_name('Sara', "oce")["id"].should == 506399
 		@summoner.find_by_name('Chingon', "las")["id"].should == 553880
 		@summoner.find_by_name('ChingoN', "lan")["id"].should == 199926
 		sleep 5

@@ -2,7 +2,7 @@ module LeagueApi
 
   class League
 
-    @base_url = 'https://prod.api.pvp.net/api/lol/na/v2.3/league/'
+    @base_url = 'https://na.api.pvp.net/api/lol/na/v2.5/league/'
 
     def self.make_request(str, params=nil, region=nil)
       LeagueApi.make_request(@base_url, str, params, region)

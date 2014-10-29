@@ -3,7 +3,7 @@ require 'pry'
 
 describe LeagueApi::Champion do
   before :all do
-		CHAMP_NUM = 119 #As of Patch 4.7
+    CHAMP_NUM = 121 #As of Patch 4.18.1
 		LeagueApi.set_region "na"
   end
 	it 'should return correct champion list' do

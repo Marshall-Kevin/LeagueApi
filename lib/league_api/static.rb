@@ -1,7 +1,7 @@
 module LeagueApi
 
   class Static
-    @base_url = "https://prod.api.pvp.net/api/lol/static-data/na/v1.2/"
+    @base_url = "https://na.api.pvp.net/api/lol/static-data/na/v1.2/"
 
     def self.make_request(str, region=nil)
       LeagueApi.make_request(@base_url, str, nil, region)
